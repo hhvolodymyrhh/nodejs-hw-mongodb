@@ -8,11 +8,11 @@ import { getEnvVar } from './utils/getEnvVar.js';
 import { getAllContacts, getContactById } from './services/contacts.js';
 
 
-const PORT = Number(getEnvVar('PORT', '3000'));
+
 
 export const setupServer = () => {
   const app = express();
-
+const PORT = Number(getEnvVar('PORT', '3000'));
 
   app.use(express.json());
   app.use(cors());
@@ -54,7 +54,7 @@ export const setupServer = () => {
 
 
 
-  app.use( (req, res, next) => {
+  app.use('*', (req, res, next) => {
     res.status(404).json({
       message: 'Not found',
     });
