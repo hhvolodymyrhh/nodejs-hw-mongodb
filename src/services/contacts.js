@@ -16,7 +16,7 @@ export const getAllContacts = async ({
   const contactsQuery = ContactsCollection.find();
 
    if (filter.type) {
-    contactsQuery.where('type').equals(filter.type);
+    contactsQuery.where('contactType').equals(filter.type);
   }
   if (typeof filter.isFavourite === 'boolean') {
     contactsQuery.where('isFavourite').equals(filter.isFavourite);
