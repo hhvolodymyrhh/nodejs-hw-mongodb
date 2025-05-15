@@ -1,5 +1,7 @@
 import { model, Schema } from 'mongoose';
 
+
+
 const contactsSchema = new Schema(
   {
     name: {
@@ -24,6 +26,11 @@ const contactsSchema = new Schema(
       default: "personal",
       enum: ['work', 'personal', 'home'],
     },
+     userId: { // нова властивість
+      type: Schema.Types.ObjectId,
+      ref: 'users'
+    },
+
   },
   {
     timestamps: true,
