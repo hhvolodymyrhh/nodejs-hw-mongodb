@@ -25,15 +25,7 @@ export const getContactsController = async (req, res) => {
   res.json({
     status: 200,
     message: 'Successfully found students!',
-    "data": {
-        "data": contacts,
-        "page": contacts.page,
-        "perPage": contacts.perPage,
-        "totalItems": contacts.totalItems,
-        "totalPages": contacts.totalPages,
-        "hasPreviousPage": contacts.hasPreviousPage,
-        "hasNextPage": contacts.hasNextPage
-    }
+    "data": contacts,
   });
 };
 
