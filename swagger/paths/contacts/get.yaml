@@ -28,22 +28,7 @@ parameters:
       type: string
       enum: ['asc', 'desc']
       example: 'asc'
-  - in: query
-    name: minAvgMark
-    schema:
-      type: number
-      example: 4
-  - in: query
-    name: maxAvgMark
-    schema:
-      type: number
-      example: 10
-  - in: query
-    name: gender
-    schema:
-      type: string
-      enum: ['work', 'personal', 'home']
-      example: work
+
 responses:
   '200':
     description: Successfully found students!
@@ -97,3 +82,5 @@ responses:
                   example: true
   '401':
     $ref: '../../components/responses/401.yaml'
+  '500':
+    $ref: '../../components/responses/500.yaml'

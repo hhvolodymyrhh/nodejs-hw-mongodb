@@ -4,20 +4,14 @@ summary: Request password reset email
 operationId: requestResetEmail
 description: Sends a password reset email to the user if the email exists in the system.
 security: []
-requestBody:
-  required: true
-  content:
-    application/json:
-      schema:
-        type: object
-        required:
-          - email
-        properties:
-          email:
-            type: string
-            format: email
-            description: User email
-            example: 'johndoe@example.com'
+parameters:
+  - name: email
+    in: query
+    required: true
+    schema:
+      type: string
+      format: email
+      example: 'johndoe@example.com'
 responses:
   '200':
     description: Password reset email successfully sent.
@@ -38,7 +32,10 @@ responses:
               example: Reset password email was successfully sent.
             data:
               type: object
-              example: {}
+              example:
+                {
+                  'url': 'https://accounts.google.com/o/oauth2/v2/auth?scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email%20https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&response_type=code&client_id=982767117375-bcmge3f3u6offmt2477q7g3pl5qqjef2.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fconfirm-google-auth',
+                }
 
   '400':
     $ref: '../../components/responses/400.yaml'
